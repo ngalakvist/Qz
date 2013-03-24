@@ -1,0 +1,36 @@
+﻿@model QuizApp.Models.Answer
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Answer</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerText)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerText)
+            @Html.ValidationMessageFor(model => model.AnswerText)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

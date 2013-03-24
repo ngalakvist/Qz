@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+     <a href="http://ngalatalla.blogspot.se/">Read more about the application on the blog</a> 
+    </p>
+</article>
+
+<aside>
+    <h3>Quiz Application</h3>
+     
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>

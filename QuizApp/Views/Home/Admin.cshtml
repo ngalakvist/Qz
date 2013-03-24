@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+<li>
+    <ul>
+        @Html.ActionLink("Add Questions","Index", "Question");
+
+    </ul>
+    <ul>
+        @Html.ActionLink("Set Anwser Choices","Index", "AnswerChoice");
+    </ul>
+    <ul>
+        @Html.ActionLink("Set Answer","Index", "Answer");
+
+    </ul>
+    <ul>
+        @Html.ActionLink("View Quiz","Index", "Quiz");
+
+    </ul>
+</li>

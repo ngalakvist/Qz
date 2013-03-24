@@ -1,0 +1,42 @@
+﻿ @model QuizApp.Models.Question
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+     
+        $("#submitButton").live("click", function () {
+            $.get($(this), function (response) {
+                $("#quiz").replaceWith($("#quiz", response));
+           
+
+            });
+            return false;
+        });
+
+    });
+
+</script>
+ 
+    @using (Html.BeginForm("Index", "Quiz"))
+    { 
+       
+            @Model.QuestionText 
+
+          @Html.HiddenFor(x => x.QuestionId)
+
+        <li>
+            @foreach (var choice in Model.AnswerChoices)
+            {
+                <ul>
+                    @Html.RadioButton("answer", @choice.Choices) @choice.Choices
+                </ul>
+            }
+        </li>   
+         <hr />
+            <p>Current Time: @DateTime.Now.ToLongTimeString() </p>
+               
+            <input type="submit" value="Next" id="submitButton" />
+          
+    }
+ 
+<div> @ViewBag.NoQuestions</div>

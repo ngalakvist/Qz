@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+
+            <h2>Welcome to Challenge quiz </h2>
+
+            <hr />
+            <h3>@Html.ActionLink("Take the quiz", "Index", "Quiz") </h3>
+        </div>
+
+        <div>@ViewBag.NoQuestions</div>
+
+    </section>
+}
+@Html.ActionLink("Add and Manage Questions","Admin");
+ 

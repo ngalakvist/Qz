@@ -1,0 +1,29 @@
+﻿@model QuizApp.Models.AnswerChoice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AnswerChoice</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Choices)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Choices)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Question.QuestionText)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Question.QuestionText)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.AnswerChoiceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

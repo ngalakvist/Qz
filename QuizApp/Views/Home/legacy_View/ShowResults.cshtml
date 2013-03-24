@@ -1,0 +1,36 @@
+﻿@model MyQuiz.Models.Quiz
+@{
+    ViewBag.Title = "ShowResults";
+}
+<h2>
+    ShowResults</h2>
+<h4>
+    Your total score is <span>@Model.Score on  @MyQuiz.Models.QuizManager.Instance.QuestionCount.</span> </h4>
+<h4>
+    Result Summary</h4>
+<hr />
+<table>
+    <tr>
+        <th>
+            Question
+        </th>
+        <th>
+            Your Answer
+        </th>
+        <th>
+            Score
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @ViewBag.Question
+        </td>
+        <td>
+            @ViewBag.Choice
+        </td>
+        <td>
+            @ViewBag.Score
+        </td>
+    </tr>
+</table>
+@Html.ActionLink("Start Over", "Index", "Quiz")
