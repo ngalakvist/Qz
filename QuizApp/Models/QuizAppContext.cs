@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿
+using QuizApp.Configurations;
+using System.Data.Entity;
 
 namespace QuizApp.Models
 {
@@ -11,9 +13,16 @@ namespace QuizApp.Models
         // code to the Application_Start method in your Global.asax file.
         // Note: this will destroy and re-create your database with every model change.
         // 
+        //This is required for auto migrations
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<QuizAppContext,Configuration>());
+            base.OnModelCreating(modelBuilder);
+        }
 
         public QuizAppContext() : base("name=QuizAppContext")
         {
+             
         }
 
         public DbSet<AnswerChoice> AnswerChoices { get; set; }

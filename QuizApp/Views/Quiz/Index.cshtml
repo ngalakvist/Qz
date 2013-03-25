@@ -24,14 +24,12 @@
 
           @Html.HiddenFor(x => x.QuestionId)
 
-        <li>
+         <table>
             @foreach (var choice in Model.AnswerChoices)
-            {
-                <ul>
-                    @Html.RadioButton("answer", @choice.Choices) @choice.Choices
-                </ul>
+            {                
+                <tr> <td>@Html.RadioButton("answer", @choice.Choices)</td> <td>@choice.Choices </td></tr> 
             }
-        </li>   
+          </table>
          <hr />
             <p>Current Time: @DateTime.Now.ToLongTimeString() </p>
                
