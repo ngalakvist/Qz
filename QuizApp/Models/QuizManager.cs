@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using QuizApp.Abstract;
 using QuizApp.Models;
+using QuizApp.ViewModels;
 
 namespace QuizApp.Models
 {
@@ -16,12 +17,16 @@ namespace QuizApp.Models
         public Quiz quiz;
         public int QuestionCount = 1 ;
 
+        public List<ResultsDto> ScoreTable ;  
+        public string AnswerFromUser;
+
         private QuizManager()
         {            
             quiz = new Quiz();
             quiz.QuizId = 1;
             quiz.Score = 0 ;
-           QuestionCount = db.Questions.Count<Question>();
+            QuestionCount = db.Questions.Count<Question>();
+            ScoreTable = new List<ResultsDto>();
         }
 
         public static QuizManager Instance
@@ -43,8 +48,20 @@ namespace QuizApp.Models
         public void SaveAnswer(string answers)
         {
             var question = db.Questions.Include("Answers").Where(x => x.QuestionId == questionId).Single();
-            if (question.Answers.AnswerText == answers)
-             quiz.Score++;
+             if (question.Answers.AnswerText == answers)
+             {
+                 quiz.Score++;
+             }
+             //  Add data that will be displayed in the result view.
+             var resultDto = new ResultsDto
+             {
+                 Question = question.QuestionText,
+                 Answer = question.Answers.AnswerText,
+                 AnswerFromUser = answers,
+                 Score = question.Answers.AnswerText == answers ? 1 : 0
+             };
+
+             ScoreTable.Add(resultDto);
         }
 
         public bool MoveToNextQuestion()

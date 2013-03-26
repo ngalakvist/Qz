@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QuizApp.Models;
+using QuizApp.ViewModels;
  
 
 namespace QuizApp.Controllers
@@ -47,7 +48,17 @@ namespace QuizApp.Controllers
         }
         public ActionResult ShowResults()
         {
-            return View(QuizManager.Instance.quiz);
+            var resultsViewModelList = new List<ResultsViewModel>();
+            foreach (var item in QuizManager.Instance.ScoreTable)
+            {
+                var resultsViewModel = new ResultsViewModel();
+                resultsViewModel.Questions= item.Question;
+                resultsViewModel.RightAnswer = item.Answer;
+                resultsViewModel.YourAnswer = item.AnswerFromUser;
+                resultsViewModel.Score = item.Score;
+                resultsViewModelList.Add(resultsViewModel);
+            }
+            return View(resultsViewModelList);
         }
 
         protected override void Dispose(bool disposing)

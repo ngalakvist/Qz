@@ -20,7 +20,7 @@
     @using (Html.BeginForm("Index", "Quiz"))
     { 
        
-            @Model.QuestionText 
+           <h3> @Model.QuestionText  </h3>
 
           @Html.HiddenFor(x => x.QuestionId)
 
@@ -29,7 +29,7 @@
             {                
                 <tr> <td>@Html.RadioButton("answer", @choice.Choices)</td> <td>@choice.Choices </td></tr> 
             }
-          </table>
+           </table>
          <hr />
             <p>Current Time: @DateTime.Now.ToLongTimeString() </p>
                

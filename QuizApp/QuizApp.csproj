@@ -201,6 +201,8 @@
     <Compile Include="Models\QuizAppContext.cs" />
     <Compile Include="Models\QuizManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ResultsDto.cs" />
+    <Compile Include="ViewModels\ResultsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -341,8 +343,9 @@
     <Content Include="Views\Quiz\Create.cshtml" />
     <Content Include="Views\Quiz\Edit.cshtml" />
     <Content Include="Views\Quiz\Delete.cshtml" />
-    <Content Include="Views\Quiz\ShowResults.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Quiz\ShowResults.cshtml" />
+    <Content Include="Views\Quiz\ShowResultsAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

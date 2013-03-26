@@ -1,36 +1,44 @@
-﻿  @model QuizApp.Models.Quiz
+﻿@model IList< QuizApp.ViewModels.ResultsViewModel>
+
 @{
-    ViewBag.Title = "Show Results";
+    ViewBag.Title = "ShowResults";
 }
-<h2>
-    ShowResults</h2>
-<h4>
-    Your total score is <span>@Model.Score on  @QuizApp.Models.QuizManager.Instance.QuestionCount.</span> </h4>
-<h4>
-    Result Summary</h4>
+
+<h2>Results</h2>
+<h4>Your total score is <span>@QuizApp.Models.QuizManager.Instance.quiz.Score on @QuizApp.Models.QuizManager.Instance.QuestionCount.</span> </h4>
+<h4>Result Summary</h4>
 <hr />
 <table>
-    <tr>
-        <th>
-            Question
-        </th>
-        <th>
-            Your Answer
-        </th>
-        <th>
-            Score
-        </th>
+    <thead>
+        <tr>
+            <th>Question
+            </th>
+            <th>Your Answer
+            </th>
+            <th>Right Answer
+            </th>
+            <th>Score
+            </th>
+        </tr>
+    </thead>
+    @foreach (var resultItem in Model)
+    {
+        <tr>
+        <td>
+           @resultItem.Questions
+        </td>
+        <td>
+           @resultItem.YourAnswer
+        </td>
+        <td>
+            @resultItem.RightAnswer
+        </td>
+            <td>
+            @resultItem.Score
+        </td>
     </tr>
-    <tr>
-        <td>
-            @ViewBag.Question
-        </td>
-        <td>
-            @ViewBag.Choice
-        </td>
-        <td>
-            @ViewBag.Score
-        </td>
-    </tr>
+    }
+    
 </table>
+<hr />
 @Html.ActionLink("Start Over", "Index", "Quiz")

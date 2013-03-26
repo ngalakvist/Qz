@@ -2,21 +2,16 @@
     ViewBag.Title = "Admin";
 }
 
-<h2>Admin</h2>
-<li>
-    <ul>
-        @Html.ActionLink("Add Questions","Index", "Question");
+     <h2>Manage Quiz</h2>
+  <p> Note*  Always start by adding anwers to your questions the add the question and link it to the answer</p>
+       <hr />
 
-    </ul>
-    <ul>
-        @Html.ActionLink("Set Anwser Choices","Index", "AnswerChoice");
-    </ul>
-    <ul>
-        @Html.ActionLink("Set Answer","Index", "Answer");
+        <p>@Html.ActionLink("Set Answer","Index", "Answer")</p>   
 
-    </ul>
-    <ul>
-        @Html.ActionLink("View Quiz","Index", "Quiz");
+         <p>@Html.ActionLink("Add Questions","Index", "Question")</p>  
+    
+        <p>@Html.ActionLink("Set Anwser Choices","Index", "AnswerChoice")</p>   
+          
+       <p>@Html.ActionLink("View Quiz","Index", "Quiz")</p> 
 
-    </ul>
-</li>
+    
